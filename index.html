@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Site</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 700px;
+            background: rgba(30, 41, 59, 0.95);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cbd5e1;
+            margin-bottom: 25px;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #0f172a;
+            padding: 12px 18px;
+            border-radius: 999px;
+            margin-bottom: 25px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        button:hover {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        .info {
+            margin-top: 30px;
+            display: grid;
+            gap: 12px;
+            text-align: left;
+        }
+
+        .card {
+            background: #0f172a;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #3b82f6;
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: .9rem;
+        }
+
+        code {
+            color: #60a5fa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🧪 Testing Site</h1>
+    <p>If you can see this page, your web server is working correctly.</p>
+
+    <div class="status">
+        <div class="dot"></div>
+        <span>Server Online</span>
+    </div>
+
+    <br>
+
+    <button onclick="testSite()">Run Test</button>
+
+    <div class="info">
+        <div class="card">
+            <strong>Current Time</strong>
+            <div id="time"></div>
+        </div>
+
+        <div class="card">
+            <strong>Browser</strong>
+            <div id="browser"></div>
+        </div>
+
+        <div class="card">
+            <strong>Status</strong>
+            <div id="status">Waiting...</div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Hosted successfully • <code>index.html</code></p>
+    </footer>
+</div>
+
+<script>
+function updateTime() {
+    document.getElementById("time").textContent =
+        new Date().toLocaleString();
+}
+
+function testSite() {
+    document.getElementById("status").innerHTML =
+        "✅ JavaScript is working!";
+}
+
+document.getElementById("browser").textContent = navigator.userAgent;
+
+updateTime();
+setInterval(updateTime, 1000);
+</script>
+
+</body>
+</html>
